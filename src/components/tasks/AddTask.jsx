@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTask, filterTask } from "../redux/action/TaskActions";
+import { addTask, filterTask } from "../../redux/action/TaskActions";
 const AddTask = () => {
   const [text, setText] = useState("");
   const dispatch = useDispatch();
-  
+
   const onClickAdd = () => {
     if (text) {
       const newTask = { id: Date.now(), description: text, isDone: false };
@@ -15,57 +15,66 @@ const AddTask = () => {
   const onFiltre = (e) => {
     dispatch(filterTask(e.target.id));
   };
-  
+
   return (
-    <div>
-      <h1>TO DO LIST</h1>
-      <form onSubmit="submit">
+    <div className="card">
+      <div className="input-group mb-2">
         <input
-          type="text"
           value={text}
-          onChange={(e) => setText(e.target.value)}
-          required
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
+          type="text"
+          className="form-control"
+          placeholder="add your task"
         />
-        <button type="submit" onClick={onClickAdd}>
+        <button
+          className="btn btn-primary"
+          type="button"
+          id="button-addon1"
+          onClick={onClickAdd}
+        >
           Add
         </button>
+      </div>
+      <div className="d-flex justify-content-arround">
         <div>
           <input
             type="radio"
             name="task"
-            value="All"
-            id="All"
+            id="completed"
+            value="completed"
             onClick={onFiltre}
           />
-          <label className="form-label" htmlFor="Uncompleted">
+          <label htmlFor="completed" className="form-lable">
+            completed
+          </label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            name="task"
+            id="Uncompleted"
+            value="Uncompleted"
+            onClick={onFiltre}
+          />
+          <label htmlFor="incompleted" className="form-lable">
+            Uncompleted
+          </label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            name="task"
+            id="all"
+            value="all"
+            onClick={onFiltre}
+          />
+          <label htmlFor="all" className="form-lable">
             All
           </label>
         </div>
-        <div>
-          <input
-            type="radio"
-            name="task"
-            value="completed"
-            id="completed"
-            onClick={onFiltre}
-          />
-          <label className="form-label" htmlFor="completed">
-            Completed
-          </label>
-        </div>
-        <div>
-          <input
-            type="radio"
-            name="task"
-            value="Uncompleted"
-            id="Uncompleted"
-            onClick={onFiltre}
-          />
-          <label className="form-label" htmlFor="Uncompleted">
-            UnCompleted
-          </label>
-        </div>
-      </form>
+      </div>
     </div>
   );
 };

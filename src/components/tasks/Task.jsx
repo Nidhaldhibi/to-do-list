@@ -1,6 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteTask, setCurrentTask, toggleCompleted } from "../action/Types";
+import {
+  deleteTask,
+  setCurrentTask,
+  toggleCompleted,
+} from "../../redux/action/TaskActions";
 
 const Task = ({ todo }) => {
   const dispatch = useDispatch();

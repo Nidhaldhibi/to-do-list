@@ -5,7 +5,7 @@ import {
   SET_CURRENT_TASK,
   TOGGLE_COMPLETED_TASK,
   UPDATE_TASK,
-} from "../redux/action/Types";
+} from "../action/Types";
 
 export const addTask = (payload) => {
   return { type: ADD_TASK, payload };

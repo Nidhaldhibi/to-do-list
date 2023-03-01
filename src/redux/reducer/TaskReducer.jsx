@@ -5,7 +5,7 @@ import {
   SET_CURRENT_TASK,
   TOGGLE_COMPLETED_TASK,
   UPDATE_TASK,
-} from "./redux/action/Types";
+} from "../action/Types";
 
 const initialstate = {
   todos: [],
@@ -48,7 +48,7 @@ const taskReducer = (state = initialstate, { type, payload }) => {
         FilteredTodos:
           payload === "completed"
             ? state.todos.filter((todo) => todo.isDone)
-            : payload === "incompleted"
+            : payload === "Uncompleted"
             ? state.todos.filter((todo) => !todo.isDone)
             : [],
       };
