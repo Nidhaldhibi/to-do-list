@@ -1,23 +1,4 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-.App {
-  text-align: center;
-  font-family: sans-serif;
-  text-align: center;
-}
 
-.card {
-  max-width: 500px;
-  margin: auto;
-  background-color: aqua;
-}
-i {
-  padding: 0.5rem;
-  cursor: pointer;
-}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
